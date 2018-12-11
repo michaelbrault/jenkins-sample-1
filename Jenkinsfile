@@ -15,6 +15,7 @@ node () {
  			if(isUnix()) {
  				sh "mvn clean package " 
 				sh "mvn sonar:sonar "
+				sh "mvn -Dplugin=org.jacoco:jacoco-maven-plugin "
 			} else { 
  				bat "mvn clean package " 
 			} 
