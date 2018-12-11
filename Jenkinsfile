@@ -4,6 +4,8 @@ timestamps {
 
 node () {
 
+	env.JAVA_HOME="${tool 'JDK-8'}"
+	
 	stage ('App-IC - Checkout') {
  	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-login', url: 'https://github.com/michaelbrault/jenkins-sample-1.git']]]) 
 	}
