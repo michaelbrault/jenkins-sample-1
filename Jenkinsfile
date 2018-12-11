@@ -20,16 +20,6 @@ node () {
 			} 
  		} 
 	}
-	stage ('App-IC - Test Jacoco') {
- 			// Maven build step
-	withMaven(maven: 'maven') { 
- 			if(isUnix()) {
-				sh "mvn test "
-			} else { 
- 				bat "mvn clean package " 
-			} 
- 		} 
-	}
 	stage ('App-IC - Post build actions') {
 /*
 Please note this is a direct conversion of post-build actions. 
@@ -37,7 +27,7 @@ It may not necessarily work/behave in the same way as post-build actions work.
 A logic review is suggested.
 */
 		// Mailer notification
-		step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'michael.brault@gmail.com', sendToIndividuals: false])
+	//	step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'michael.brault@gmail.com', sendToIndividuals: false])
  
 	}
 }
