@@ -15,7 +15,16 @@ node () {
  			if(isUnix()) {
  				sh "mvn clean package " 
 				sh "mvn sonar:sonar "
-				sh "mvn -Dreport "
+			} else { 
+ 				bat "mvn clean package " 
+			} 
+ 		} 
+	}
+	stage ('App-IC - Test Jacoco') {
+ 			// Maven build step
+	withMaven(maven: 'maven') { 
+ 			if(isUnix()) {
+				sh "mvn test "
 			} else { 
  				bat "mvn clean package " 
 			} 
