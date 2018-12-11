@@ -14,6 +14,7 @@ node () {
 	withMaven(maven: 'maven') { 
  			if(isUnix()) {
  				sh "mvn clean package " 
+				sh "mvn sonar:sonar "
 			} else { 
  				bat "mvn clean package " 
 			} 
